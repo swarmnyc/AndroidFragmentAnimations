@@ -1,7 +1,6 @@
 package com.swarmnyc.fragmentanimations;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,7 +41,7 @@ public class MainActivity extends ActionBarActivity
 				{
 
 
-					getSupportFragmentManager().beginTransaction().addToBackStack( "top" ).setCustomAnimations(
+					getSupportFragmentManager().beginTransaction().setCustomAnimations(
 						R.anim.abc_slide_in_top, R.anim.abc_slide_out_top
 					).show( m_topFragment ).commit();
 				}
@@ -55,19 +54,11 @@ public class MainActivity extends ActionBarActivity
 				@Override public void onClick( final View v )
 				{
 
-					final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction()
-					                                                                           .addToBackStack(
-						                                                                           "fragmentTransaction"
-
-					                                                                           );
-					fragmentTransaction.setCustomAnimations(
+					getSupportFragmentManager().beginTransaction().setCustomAnimations(
 						R.anim.abc_slide_in_top, R.anim.abc_slide_out_top
-					).show( m_topFragment );
-					fragmentTransaction.setCustomAnimations(
+					).show( m_topFragment ).setCustomAnimations(
 						R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_bottom
-					).show( m_bottomFragment );
-
-					fragmentTransaction.commit();
+					).show( m_bottomFragment ).commit();
 				}
 			}
 		);
