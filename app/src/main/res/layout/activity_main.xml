@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".MainActivity"
+                tools:ignore="MergeRootFrame">
+
+    <fragment
+            android:id="@+id/fragment_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:name="com.swarmnyc.fragmentanimations.TopFragment"/>
+
+    <fragment
+            android:id="@+id/fragment_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:name="com.swarmnyc.fragmentanimations.BottomFragment"/>
+
+
+
+    <LinearLayout
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+        <Button
+                android:id="@+id/btn_show_top"
+                android:text="Show Top"
+                style="@style/TextButton"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <Button
+                android:id="@+id/btn_show_both"
+                style="@style/TextButton"
+                android:text="Show Both"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <Button
+                android:id="@+id/btn_hide_all"
+                style="@style/TextButton"
+                android:text="Hide All"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

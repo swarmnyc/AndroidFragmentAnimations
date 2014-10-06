@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Fragment Animations</string>
+    <string name="top_fragment">Top Fragment</string>
+    <string name="bottom_fragment">Bottom Fragment</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
