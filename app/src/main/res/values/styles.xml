@@ -7,7 +7,7 @@
 
     <style name="TextButton">
         <item name="android:background">@android:color/transparent</item>
-        <item name="android:textColor">@color/swarm_blue</item>
+        <item name="android:textColor">@color/text_button_foreground</item>
         <item name="android:textAppearance">@android:style/TextAppearance.Large</item>
     </style>
 

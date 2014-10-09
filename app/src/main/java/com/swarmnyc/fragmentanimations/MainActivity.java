@@ -33,6 +33,8 @@ public class MainActivity extends ActionBarActivity
 
 		getSupportFragmentManager().beginTransaction().hide( m_topFragment ).hide( m_bottomFragment ).commit();
 
+		m_hideAllButton.setSelected( true );
+
 
 		m_showTopButton.setOnClickListener(
 			new View.OnClickListener()
@@ -40,6 +42,10 @@ public class MainActivity extends ActionBarActivity
 				@Override public void onClick( final View v )
 				{
 
+
+					m_showTopButton.setSelected( true );
+					m_showBothButton.setSelected( false );
+					m_hideAllButton.setSelected( false );
 
 					getSupportFragmentManager().beginTransaction().setCustomAnimations(
 						R.anim.abc_slide_in_top, R.anim.abc_slide_out_top
@@ -53,6 +59,10 @@ public class MainActivity extends ActionBarActivity
 			{
 				@Override public void onClick( final View v )
 				{
+
+					m_showTopButton.setSelected( false );
+					m_showBothButton.setSelected( true );
+					m_hideAllButton.setSelected( false );
 
 					getSupportFragmentManager().beginTransaction().setCustomAnimations(
 						R.anim.abc_slide_in_top, R.anim.abc_slide_out_top
@@ -68,6 +78,10 @@ public class MainActivity extends ActionBarActivity
 			{
 				@Override public void onClick( final View v )
 				{
+
+					m_showTopButton.setSelected( false );
+					m_showBothButton.setSelected( false );
+					m_hideAllButton.setSelected( true );
 
 					getSupportFragmentManager().beginTransaction().setCustomAnimations(
 						R.anim.abc_slide_in_top, R.anim.abc_slide_out_top
