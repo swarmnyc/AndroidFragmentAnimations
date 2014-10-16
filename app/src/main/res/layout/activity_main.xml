@@ -21,7 +21,6 @@
             android:name="com.swarmnyc.fragmentanimations.BottomFragment"/>
 
 
-
     <LinearLayout
             android:layout_centerInParent="true"
             android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -29,22 +28,28 @@
             >
 
         <Button
-                android:id="@+id/btn_show_top"
-                android:text="Show Top"
+                android:id="@+id/btn_show_transition"
+                android:text="@string/start_transition"
                 style="@style/TextButton"
                 android:layout_width="match_parent" android:layout_height="wrap_content"/>
 
         <Button
-                android:id="@+id/btn_show_both"
+                android:id="@+id/btn_show_animation"
+                android:text="@string/start_animation"
                 style="@style/TextButton"
-                android:text="Show Both"
                 android:layout_width="match_parent" android:layout_height="wrap_content"/>
 
         <Button
-                android:id="@+id/btn_hide_all"
+                android:id="@+id/btn_start_multiple_animations"
                 style="@style/TextButton"
-                android:text="Hide All"
+                android:text="@string/start_multiple_animation"
                 android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <!--<Button-->
+                <!--android:id="@+id/btn_reset"-->
+                <!--style="@style/TextButton"-->
+                <!--android:text="@string/reset"-->
+                <!--android:layout_width="match_parent" android:layout_height="wrap_content"/>-->
 
     </LinearLayout>
 

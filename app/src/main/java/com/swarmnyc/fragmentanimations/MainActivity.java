@@ -1,6 +1,7 @@
 package com.swarmnyc.fragmentanimations;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,11 +12,12 @@ import android.widget.Button;
 public class MainActivity extends ActionBarActivity
 {
 
-	private Button         m_showTopButton;
-	private Button         m_showBothButton;
-	private Button         m_hideAllButton;
+	private Button         m_showAnimtaionButton;
+	private Button         m_showMultiAnimationsButton;
+//	private Button         m_resetButtom;
 	private TopFragment    m_topFragment;
 	private BottomFragment m_bottomFragment;
+	private Button         m_showTransitionButton;
 
 	@Override
 	protected void onCreate( Bundle savedInstanceState )
@@ -24,74 +26,88 @@ public class MainActivity extends ActionBarActivity
 		setContentView( R.layout.activity_main );
 
 
-		m_showTopButton = (Button) findViewById( R.id.btn_show_top );
-		m_showBothButton = (Button) findViewById( R.id.btn_show_both );
-		m_hideAllButton = (Button) findViewById( R.id.btn_hide_all );
+		m_showTransitionButton = (Button) findViewById( R.id.btn_show_transition );
+		m_showAnimtaionButton = (Button) findViewById( R.id.btn_show_animation );
+		m_showMultiAnimationsButton = (Button) findViewById( R.id.btn_start_multiple_animations );
+//		m_resetButtom = (Button) findViewById( R.id.btn_reset );
 
 		m_topFragment = (TopFragment) getSupportFragmentManager().findFragmentById( R.id.fragment_top );
 		m_bottomFragment = (BottomFragment) getSupportFragmentManager().findFragmentById( R.id.fragment_bottom );
 
 		getSupportFragmentManager().beginTransaction().hide( m_topFragment ).hide( m_bottomFragment ).commit();
 
-		m_hideAllButton.setSelected( true );
+//		m_resetButtom.setSelected( true );
+
+		m_showTransitionButton.setOnClickListener(
+			new View.OnClickListener()
+			{
+				@Override public void onClick( final View v )
+				{
+					getSupportFragmentManager().beginTransaction().setTransition(
+						FragmentTransaction.TRANSIT_FRAGMENT_OPEN
+					).add( R.id.container, new FullScreenFragment() ).addToBackStack( "transition" ).commit();
+				}
+			}
+		);
 
 
-		m_showTopButton.setOnClickListener(
+		m_showAnimtaionButton.setOnClickListener(
 			new View.OnClickListener()
 			{
 				@Override public void onClick( final View v )
 				{
 
 
-					m_showTopButton.setSelected( true );
-					m_showBothButton.setSelected( false );
-					m_hideAllButton.setSelected( false );
-
 					getSupportFragmentManager().beginTransaction().setCustomAnimations(
-						R.anim.abc_slide_in_top, R.anim.abc_slide_out_top
-					).show( m_topFragment ).commit();
+						R.anim.slide_in_left, 0, 0, R.anim.slide_out_left
+					).add( R.id.container, new FullScreenFragment() ).addToBackStack( "animation" ).commit();
 				}
 			}
 		);
 
-		m_showBothButton.setOnClickListener(
+		m_showMultiAnimationsButton.setOnClickListener(
 			new View.OnClickListener()
 			{
 				@Override public void onClick( final View v )
 				{
-
-					m_showTopButton.setSelected( false );
-					m_showBothButton.setSelected( true );
-					m_hideAllButton.setSelected( false );
-
-					getSupportFragmentManager().beginTransaction().setCustomAnimations(
-						R.anim.abc_slide_in_top, R.anim.abc_slide_out_top
-					).show( m_topFragment ).setCustomAnimations(
-						R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_bottom
-					).show( m_bottomFragment ).commit();
+					if (m_topFragment.isHidden())
+					{
+						m_showMultiAnimationsButton.setSelected( true );
+						getSupportFragmentManager().beginTransaction().setCustomAnimations(
+							R.anim.abc_slide_in_top, R.anim.abc_slide_out_top
+						).show( m_topFragment ).setCustomAnimations(
+							R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_bottom
+						).show( m_bottomFragment ).commit();
+					}
+					else
+					{
+						m_showMultiAnimationsButton.setSelected( false );
+						getSupportFragmentManager().beginTransaction().setCustomAnimations(
+							R.anim.abc_slide_in_top, R.anim.abc_slide_out_top
+						).hide( m_topFragment ).setCustomAnimations(
+							R.anim.abc_slide_in_top, R.anim.abc_slide_out_bottom
+						).hide( m_bottomFragment ).commit();
+					}
 				}
 			}
 		);
 
-		m_hideAllButton.setOnClickListener(
-			new View.OnClickListener()
-			{
-				@Override public void onClick( final View v )
-				{
-
-					m_showTopButton.setSelected( false );
-					m_showBothButton.setSelected( false );
-					m_hideAllButton.setSelected( true );
-
-					getSupportFragmentManager().beginTransaction().setCustomAnimations(
-						R.anim.abc_slide_in_top, R.anim.abc_slide_out_top
-					).hide( m_topFragment ).setCustomAnimations(
-						R.anim.abc_slide_in_top, R.anim.abc_slide_out_bottom
-					).hide( m_bottomFragment ).commit();
-
-				}
-			}
-		);
+//		m_resetButtom.setOnClickListener(
+//			new View.OnClickListener()
+//			{
+//				@Override public void onClick( final View v )
+//				{
+//
+//
+//					getSupportFragmentManager().beginTransaction().setCustomAnimations(
+//						R.anim.abc_slide_in_top, R.anim.abc_slide_out_top
+//					).hide( m_topFragment ).setCustomAnimations(
+//						R.anim.abc_slide_in_top, R.anim.abc_slide_out_bottom
+//					).hide( m_bottomFragment ).commit();
+//
+//				}
+//			}
+//		);
 
 
 	}
