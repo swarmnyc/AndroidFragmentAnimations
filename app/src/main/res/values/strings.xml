@@ -7,8 +7,7 @@
     <string name="action_settings">Settings</string>
     <string name="start_transition">Transition</string>
     <string name="start_animation">Animation</string>
-    <string name="start_multiple_animation">Multiple Animations</string>
-    <string name="reset">Reset</string>
-    <string name="close">Close Fragment</string>
+    <string name="show_multiple_animations">Multiple Animations</string>
+    <string name="go_back">Go Back</string>
 
 </resources>

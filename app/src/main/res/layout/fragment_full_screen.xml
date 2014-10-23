@@ -11,7 +11,7 @@
 
     <Button
             android:id="@+id/btn_close"
-            android:text="@string/close"
+            android:text="@string/go_back"
             android:background="@android:color/transparent"
             android:textColor="@android:color/white"
             android:textStyle="bold"

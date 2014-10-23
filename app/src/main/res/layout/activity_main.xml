@@ -42,14 +42,9 @@
         <Button
                 android:id="@+id/btn_start_multiple_animations"
                 style="@style/TextButton"
-                android:text="@string/start_multiple_animation"
+                android:text="@string/show_multiple_animations"
                 android:layout_width="match_parent" android:layout_height="wrap_content"/>
 
-        <!--<Button-->
-                <!--android:id="@+id/btn_reset"-->
-                <!--style="@style/TextButton"-->
-                <!--android:text="@string/reset"-->
-                <!--android:layout_width="match_parent" android:layout_height="wrap_content"/>-->
 
     </LinearLayout>
 
